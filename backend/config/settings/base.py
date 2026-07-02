@@ -31,13 +31,18 @@ DJANGO_APPS = [
 # Third Party Applications
 # ==================================================
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework_simplejwt",
+]
 
 # ==================================================
 # Local Applications
 # ==================================================
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "features.accounts",
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -45,7 +50,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # Middleware
 # ==================================================
 
-MIDDLEWARE = [
+DJANGO_MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -54,6 +59,16 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+THIRD_PARTY_MIDDLEWARE = []
+
+LOCAL_MIDDLEWARE = []
+
+MIDDLEWARE = (
+    DJANGO_MIDDLEWARE
+    + THIRD_PARTY_MIDDLEWARE
+    + LOCAL_MIDDLEWARE
+)
 
 # ==================================================
 # URL Configuration
